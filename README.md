@@ -1,26 +1,26 @@
 # Case Formatter
 
-Un plugin per Obsidian che cambia le maiuscole e le minuscole del testo selezionato, dalla palette comandi, dalle scorciatoie da tastiera o dal menu contestuale dell'editor.
+An Obsidian plugin that changes the capitalization of selected text through the command palette, keyboard shortcuts, or the editor context menu.
 
-| Comando | Esempio da `il SIGNORE degli ANELLI` |
+| Command | Result for `the LORD of the RINGS` |
 | --- | --- |
-| UPPERCASE | `IL SIGNORE DEGLI ANELLI` |
-| lowercase | `il signore degli anelli` |
-| Sentence case | `Il signore degli anelli` |
-| Capitalize Each Word | `Il Signore Degli Anelli` |
+| UPPERCASE | `THE LORD OF THE RINGS` |
+| lowercase | `the lord of the rings` |
+| Sentence case | `The lord of the rings` |
+| Capitalize Each Word | `The Lord Of The Rings` |
 
-Le quattro operazioni seguono le definizioni generali di [Microsoft Word](https://support.microsoft.com/en-us/word/change-the-capitalization-or-case-of-text). Non viene riprodotto il motore linguistico di Office.
+These operations follow the general definitions used by [Microsoft Word](https://support.microsoft.com/en-us/word/change-the-capitalization-or-case-of-text). The plugin does not reproduce Office's linguistic engine.
 
-## Installazione manuale
+## Manual installation
 
-Richiede Obsidian **1.5.0 o successivo**. Il plugin usa API compatibili con desktop e mobile; la prima prova manuale va eseguita su desktop. Non è ancora pubblicato nel catalogo dei plugin.
+Requires **Obsidian 1.5.0 or later**. The plugin uses APIs available on desktop and mobile; start with a manual test on desktop. It is not yet listed in the community plugin directory.
 
-1. Scarica lo ZIP dalla [pagina Releases](https://github.com/dariocast/obsidian-case-formatter/releases/latest) ed estrailo. All'interno trovi la cartella `case-formatter`. Se hai compilato il progetto, lo ZIP è in `dist/case-formatter-1.0.0.zip`.
-2. Apri la cartella del tuo vault. Copia `case-formatter` dentro `.obsidian/plugins/`, creando `plugins` se manca. Puoi anche copiare direttamente la cartella già estratta `dist/case-formatter`.
-3. Controlla che i due file essenziali siano esattamente in questi percorsi:
+1. Download the ZIP from the [Releases page](https://github.com/dariocast/obsidian-case-formatter/releases/latest) and extract it. It contains a `case-formatter` folder. If you built the project locally, the ZIP is at `dist/case-formatter-1.0.0.zip`.
+2. Open your vault folder. Copy `case-formatter` into `.obsidian/plugins/`, creating `plugins` if needed. You can also copy the already extracted `dist/case-formatter` folder from a local build.
+3. Check that the two required files are at these exact paths:
 
    ```text
-   IL-TUO-VAULT/
+   YOUR-VAULT/
    └── .obsidian/
        └── plugins/
            └── case-formatter/
@@ -28,59 +28,59 @@ Richiede Obsidian **1.5.0 o successivo**. Il plugin usa API compatibili con desk
                └── manifest.json
    ```
 
-4. Riavvia Obsidian. Vai in **Impostazioni → Plugin della comunità / Community plugins**. Se necessario abilita i plugin della comunità, quindi attiva **Case Formatter** nell'elenco dei plugin installati.
-5. Apri una nota in modalità modifica, seleziona del testo e fai clic destro: vedrai le quattro azioni raggruppate nel menu. Sono disponibili anche nella palette comandi, cercando **Case Formatter**.
+4. Restart Obsidian. Open **Settings → Community plugins**. Enable community plugins if needed, then turn on **Case Formatter** in the installed plugins list.
+5. Open a note in editing mode, select some text, and right-click to see the four actions grouped in the menu. You can also open the command palette and search for **Case Formatter**.
 
-Su macOS le cartelle che iniziano con un punto sono nascoste: nel Finder premi **⌘⇧.** per mostrarle. Se hai configurato una cartella di configurazione diversa da `.obsidian`, usa quella.
+On macOS, folders starting with a dot are hidden: press **⌘⇧.** in Finder to show them. If your vault uses a configuration folder other than `.obsidian`, use that folder instead.
 
-Per installarlo non servono Node.js, npm o compilazioni. `styles.css` non è necessario perché il plugin usa l'interfaccia nativa di Obsidian.
+Installation does not require Node.js, npm, or compilation. No `styles.css` is needed because the plugin uses Obsidian's native interface.
 
-## Scorciatoie
+## Keyboard shortcuts
 
-Vai in **Impostazioni → Tasti di scelta rapida / Hotkeys**, cerca **Case Formatter** e assegna le combinazioni che preferisci ai quattro comandi. Non ci sono hotkey predefinite.
+Open **Settings → Hotkeys**, search for **Case Formatter**, and assign your preferred shortcuts to the four commands. No default hotkeys are assigned.
 
-## Comportamento
+## Behavior
 
-- Si modifica solo il testo selezionato, in Source mode e Live Preview. In Reading view passa prima alla modalità modifica.
-- Senza selezione i comandi non sono disponibili e il plugin non aggiunge voci al menu.
-- La selezione resta attiva dopo la conversione; puoi applicare un altro case senza riselezionare.
-- Sono supportate selezioni multiple e lettere accentate. Le selezioni vengono aggiornate anche quando cambia la lunghezza, per esempio `straße` → `STRASSE`.
-- Ogni conversione che cambia il testo genera un singolo passaggio nella cronologia nativa. **⌘Z** su Mac o **Ctrl+Z** su Windows/Linux annulla l'ultima conversione; il normale Redo la ripristina. Nessuno storico separato.
-- **Capitalize Each Word** rende maiuscola l'iniziale di ogni parola, inclusi articoli e preposizioni, e minuscolo il resto. Gli apostrofi interni restano parte della parola (`L'AMICO` → `L'amico`, `DON'T` → `Don't`); il trattino separa le parole (`mother-in-law` → `Mother-In-Law`).
-- **Sentence case** rende il testo minuscolo e applica la maiuscola all'inizio delle frasi e di ogni riga. Non riconosce nomi propri o sigle: `NASA` diventa `nasa` se non è all'inizio della frase. La distinzione tra abbreviazioni e fine frase non è linguistica e può richiedere correzioni manuali.
-- Si converte il **Markdown letterale selezionato**. Se includi URL, destinazioni di link, wikilink o codice, anche le loro lettere vengono convertite: seleziona solo il testo che vuoi cambiare.
-- Nessuna connessione di rete, telemetria, impostazione da salvare o modifica a note non selezionate.
+- Only selected text is modified, in Source mode and Live Preview. Switch to editing mode first if you are in Reading view.
+- Without a selection, the commands are unavailable and the plugin adds no context menu items.
+- Converted text stays selected, so you can apply another case without selecting it again.
+- Multiple selections and accented letters are supported. Selection positions are updated even when the text length changes, such as `straße` → `STRASSE`.
+- Each conversion that changes the text creates one step in the native history. **⌘Z** on Mac or **Ctrl+Z** on Windows/Linux undoes the last conversion; the standard Redo command restores it. There is no separate history.
+- **Capitalize Each Word** uppercases the first letter of every word, including articles and prepositions, and lowercases the rest. Internal apostrophes stay within a word (`L'AMICO` → `L'amico`, `DON'T` → `Don't`); hyphens separate words (`mother-in-law` → `Mother-In-Law`).
+- **Sentence case** lowercases the text and capitalizes the beginning of sentences and each line. It does not recognize proper names or acronyms: `NASA` becomes `nasa` unless it starts a sentence. Abbreviations and sentence endings are not distinguished using linguistic rules and may need manual correction.
+- The plugin converts the **literal selected Markdown**. If your selection includes URLs, link destinations, wikilinks, or code, their letters are converted too: select only the text you want to change.
+- No network requests, telemetry, saved settings, or changes to unselected notes.
 
-## Prova rapida
+## Quick test
 
-Copia [TEST-NOTE.md](TEST-NOTE.md) nel vault e segui la checklist. Include frasi italiane, accenti, apostrofi e verifiche di Undo/Redo. I test automatici verificano le conversioni, la gestione delle selezioni, la cronologia CodeMirror e l'integrazione con un host Obsidian simulato; non sostituiscono la prova nell'app reale.
+Copy [TEST-NOTE.md](TEST-NOTE.md) into your vault and follow its checklist. It includes English text, Unicode examples, accents, apostrophes, and Undo/Redo checks. Automated tests cover conversions, selection handling, CodeMirror history, and integration with a simulated Obsidian host; they do not replace testing in the actual app.
 
-Per aggiornare una copia già installata, disattiva il plugin, sostituisci `main.js` e `manifest.json`, quindi riavvia Obsidian e riattivalo. Per rimuoverlo, disattivalo ed elimina la cartella `case-formatter` dal vault.
+To update an installed copy, disable the plugin, replace `main.js` and `manifest.json`, then restart Obsidian and enable it again. To remove it, disable the plugin and delete the `case-formatter` folder from your vault.
 
-## Sviluppo
+## Development
 
-Richiede **Node.js 22.12+** e npm. Per creare lo ZIP serve anche il comando `zip` (già disponibile su macOS; in Ubuntu: `sudo apt install zip`).
+Requires **Node.js 22.12+** and npm. Packaging also requires the `zip` command, which is included with macOS. On Ubuntu, install it with `sudo apt install zip`.
 
 ```sh
 npm ci
-npm run check       # test, TypeScript e build di produzione
-npm run package     # verifiche + cartella installabile + ZIP
-npm run dev         # ricompila main.js quando cambiano i sorgenti
+npm run check       # Tests, TypeScript checks, and production build
+npm run package     # Checks, installable folder, and ZIP archive
+npm run dev         # Rebuild main.js when source files change
 ```
 
-La build genera `main.js` nella radice. Il packaging genera `dist/case-formatter/` e `dist/case-formatter-1.0.0.zip`. I file generati e `node_modules` sono esclusi da Git. `npm run dev` ricompila il bundle ma non ricarica automaticamente Obsidian.
+The build generates `main.js` in the project root. Packaging generates `dist/case-formatter/` and `dist/case-formatter-1.0.0.zip`. Generated files and `node_modules` are excluded from Git. `npm run dev` rebuilds the bundle but does not automatically reload Obsidian.
 
 ```text
-src/format.ts       Regole di conversione senza dipendenze da Obsidian
-src/editor.ts       Modifica atomica delle selezioni e aggiornamento delle posizioni
-src/history.ts      Separazione delle conversioni nella cronologia nativa
-src/main.ts         Comandi, menu contestuale e registrazione delle estensioni
-tests/              Test con Vitest e cronologia CodeMirror reale
-scripts/package.mjs Pacchetto installabile e controllo versioni
+src/format.ts       Conversion rules with no Obsidian dependencies
+src/editor.ts       Atomic selection changes and position updates
+src/history.ts      Separate undo events for conversions
+src/main.ts         Commands, context menu, and extension registration
+tests/              Vitest tests using real CodeMirror history
+scripts/package.mjs Installable package and version consistency checks
 ```
 
-La CI esegue verifiche e packaging su Node.js 22 e 24, rendendo scaricabile il pacchetto come artifact. I pacchetti installabili pubblicati sono disponibili nella [pagina Releases](https://github.com/dariocast/obsidian-case-formatter/releases).
+CI runs checks and packaging on Node.js 22 and 24, making the package available as a workflow artifact. Published installable packages are available on the [Releases page](https://github.com/dariocast/obsidian-case-formatter/releases).
 
-## Licenza
+## License
 
-MIT — vedi [LICENSE](LICENSE).
+MIT — see [LICENSE](LICENSE).

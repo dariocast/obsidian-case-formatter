@@ -1,47 +1,49 @@
-# Prova Case Formatter
+# Case Formatter test note
 
-Questa è una nota di prova: copia questo file nel vault e aprilo in modalità modifica.
+Copy this file into your vault and open it in editing mode.
 
-## Le quattro conversioni
+## The four conversions
 
-Seleziona solo la riga seguente. Applica ciascun comando dalla palette cercando `Case Formatter`, poi annulla prima di provare il successivo:
+Select only the following line. Apply each command from the command palette by searching for `Case Formatter`, then undo before trying the next command:
 
-il SIGNORE degli ANELLI
+the LORD of the RINGS
 
-Risultati attesi:
+Expected results:
 
-- UPPERCASE: IL SIGNORE DEGLI ANELLI
-- lowercase: il signore degli anelli
-- Sentence case: Il signore degli anelli
-- Capitalize Each Word: Il Signore Degli Anelli
+- UPPERCASE: THE LORD OF THE RINGS
+- lowercase: the lord of the rings
+- Sentence case: The lord of the rings
+- Capitalize Each Word: The Lord Of The Rings
 
-## Accenti, apostrofi e trattini
+## Accents, apostrophes, and hyphens
+
+The following sample intentionally includes Italian and German words to test Unicode handling:
 
 PERCHÉ L'AMICO dell’ALBERO È GIÀ QUI? mother-in-LAW, DON'T, straße.
 
-In Capitalize Each Word: `Perché L'amico Dell’albero È Già Qui? Mother-In-Law, Don't, Straße.`
-In UPPERCASE: `PERCHÉ L'AMICO DELL’ALBERO È GIÀ QUI? MOTHER-IN-LAW, DON'T, STRASSE.`
+Capitalize Each Word: `Perché L'amico Dell’albero È Già Qui? Mother-In-Law, Don't, Straße.`
+UPPERCASE: `PERCHÉ L'AMICO DELL’ALBERO È GIÀ QUI? MOTHER-IN-LAW, DON'T, STRASSE.`
 
-## Frasi e righe
+## Sentences and lines
 
-CIAO MONDO! COME STAI? TUTTO BENE.
-È UNA NUOVA RIGA.
+HELLO WORLD! HOW ARE YOU? ALL GOOD.
+THIS IS A NEW LINE.
 
-In Sentence case:
+Expected Sentence case result:
 
-> Ciao mondo! Come stai? Tutto bene.
-> È una nuova riga.
+> Hello world! How are you? All good.
+> This is a new line.
 
-## Checklist nell'app
+## In-app checklist
 
-- [ ] Le quattro azioni compaiono nella palette comandi quando c'è una selezione.
-- [ ] Le quattro azioni compaiono con il tasto destro sul testo selezionato.
-- [ ] Una hotkey assegnata dalle impostazioni esegue la conversione.
-- [ ] Il testo esterno alla selezione resta identico.
-- [ ] Il testo convertito resta selezionato, anche per `straße` → `STRASSE`.
-- [ ] Due conversioni consecutive si annullano una alla volta.
-- [ ] La digitazione precedente e successiva ha un Undo separato dalla conversione.
-- [ ] Redo ripristina la conversione.
-- [ ] Senza selezione non viene cambiato nulla.
-- [ ] Funziona sia in Live Preview sia in Source mode.
-- [ ] Disattivando il plugin spariscono comandi e voci del menu.
+- [ ] All four actions appear in the command palette when text is selected.
+- [ ] All four actions appear when right-clicking selected text.
+- [ ] A hotkey assigned in settings runs the conversion.
+- [ ] Text outside the selection remains unchanged.
+- [ ] Converted text stays selected, including `straße` → `STRASSE`.
+- [ ] Two consecutive conversions can be undone one at a time.
+- [ ] Typing before and after a conversion has a separate Undo step.
+- [ ] Redo restores the conversion.
+- [ ] Nothing changes without a selection.
+- [ ] The plugin works in both Live Preview and Source mode.
+- [ ] Disabling the plugin removes its commands and menu items.
