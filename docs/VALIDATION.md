@@ -9,4 +9,4 @@
 
 Not yet verified in the actual Obsidian UI: command palette, assigned hotkeys, context menu, Live Preview/Source mode, disabling the plugin, oldest declared host version and mobile. See TEST-NOTE.md for manual acceptance.
 
-Repository created locally only. No GitHub repository or remote push.
+At initial delivery, the repository existed locally only. GitHub publication was subsequently authorized by the user.

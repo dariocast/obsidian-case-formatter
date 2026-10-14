@@ -15,7 +15,7 @@ Le quattro operazioni seguono le definizioni generali di [Microsoft Word](https:
 
 Richiede Obsidian **1.5.0 o successivo**. Il plugin usa API compatibili con desktop e mobile; la prima prova manuale va eseguita su desktop. Non è ancora pubblicato nel catalogo dei plugin.
 
-1. Estrai `dist/case-formatter-1.0.0.zip`. All'interno trovi la cartella `case-formatter`.
+1. Scarica lo ZIP dalla [pagina Releases](https://github.com/dariocast/obsidian-case-formatter/releases/latest) ed estrailo. All'interno trovi la cartella `case-formatter`. Se hai compilato il progetto, lo ZIP è in `dist/case-formatter-1.0.0.zip`.
 2. Apri la cartella del tuo vault. Copia `case-formatter` dentro `.obsidian/plugins/`, creando `plugins` se manca. Puoi anche copiare direttamente la cartella già estratta `dist/case-formatter`.
 3. Controlla che i due file essenziali siano esattamente in questi percorsi:
 
@@ -79,7 +79,7 @@ tests/              Test con Vitest e cronologia CodeMirror reale
 scripts/package.mjs Pacchetto installabile e controllo versioni
 ```
 
-La CI esegue verifiche e packaging su Node.js 22 e 24, rendendo scaricabile il pacchetto come artifact. La creazione del repository remoto e il push sono rimandati alla verifica manuale del plugin.
+La CI esegue verifiche e packaging su Node.js 22 e 24, rendendo scaricabile il pacchetto come artifact. I pacchetti installabili pubblicati sono disponibili nella [pagina Releases](https://github.com/dariocast/obsidian-case-formatter/releases).
 
 ## Licenza
 
