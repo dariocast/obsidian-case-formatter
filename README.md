@@ -1,6 +1,6 @@
 # Case Formatter
 
-An Obsidian plugin that changes the capitalization of selected text through the command palette, keyboard shortcuts, or the editor context menu.
+Change the case of selected text in Obsidian with four familiar actions, available from the command palette, keyboard shortcuts, and the editor context menu.
 
 | Command | Result for `the LORD of the RINGS` |
 | --- | --- |
@@ -15,7 +15,7 @@ These operations follow the general definitions used by [Microsoft Word](https:/
 
 Requires **Obsidian 1.5.0 or later**. The plugin uses APIs available on desktop and mobile; start with a manual test on desktop. It is not yet listed in the community plugin directory.
 
-1. Download the ZIP from the [Releases page](https://github.com/dariocast/obsidian-case-formatter/releases/latest) and extract it. It contains a `case-formatter` folder. If you built the project locally, the ZIP is at `dist/case-formatter-1.0.0.zip`.
+1. Download the ZIP from the [Releases page](https://github.com/dariocast/obsidian-case-formatter/releases/latest) and extract it. It contains a `case-formatter` folder. If you built the project locally, the ZIP is at `dist/case-formatter-1.0.1.zip`.
 2. Open your vault folder. Copy `case-formatter` into `.obsidian/plugins/`, creating `plugins` if needed. You can also copy the already extracted `dist/case-formatter` folder from a local build.
 3. Check that the two required files are at these exact paths:
 
@@ -53,7 +53,9 @@ Open **Settings → Hotkeys**, search for **Case Formatter**, and assign your pr
 
 ## Quick test
 
-Copy [TEST-NOTE.md](TEST-NOTE.md) into your vault and follow its checklist. It includes English text, Unicode examples, accents, apostrophes, and Undo/Redo checks. Automated tests cover conversions, selection handling, CodeMirror history, and integration with a simulated Obsidian host; they do not replace testing in the actual app.
+Copy [TEST-NOTE.md](TEST-NOTE.md) into your vault and follow its checklist. It includes English text, Unicode examples, accents, apostrophes, and Undo/Redo checks. Automated tests cover conversions, selection handling, CodeMirror history, Obsidian host integration, and release packaging.
+
+Desktop acceptance checks have also passed in Obsidian **1.14.4** on macOS, including both editor modes, native Undo/Redo, the visible context menu and mouse conversion, unload cleanup, and an assigned keyboard shortcut. The minimum declared version, **1.5.0**, is based on the public APIs used; it has not been tested in that older runtime. Mobile devices have not been tested.
 
 To update an installed copy, disable the plugin, replace `main.js` and `manifest.json`, then restart Obsidian and enable it again. To remove it, disable the plugin and delete the `case-formatter` folder from your vault.
 
@@ -63,12 +65,13 @@ Requires **Node.js 22.12+** and npm. Packaging also requires the `zip` command, 
 
 ```sh
 npm ci
-npm run check       # Tests, TypeScript checks, and production build
+npm run lint        # Official Obsidian lint rules and manifest validation
+npm run check       # Lint, tests, TypeScript checks, and production build
 npm run package     # Checks, installable folder, and ZIP archive
 npm run dev         # Rebuild main.js when source files change
 ```
 
-The build generates `main.js` in the project root. Packaging generates `dist/case-formatter/` and `dist/case-formatter-1.0.0.zip`. Generated files and `node_modules` are excluded from Git. `npm run dev` rebuilds the bundle but does not automatically reload Obsidian.
+The build generates `main.js` in the project root. Packaging generates `dist/case-formatter/` and `dist/case-formatter-1.0.1.zip`. Generated files and `node_modules` are excluded from Git. `npm run dev` rebuilds the bundle but does not automatically reload Obsidian.
 
 ```text
 src/format.ts       Conversion rules with no Obsidian dependencies
@@ -80,6 +83,10 @@ scripts/package.mjs Installable package and version consistency checks
 ```
 
 CI runs checks and packaging on Node.js 22 and 24, making the package available as a workflow artifact. Published installable packages are available on the [Releases page](https://github.com/dariocast/obsidian-case-formatter/releases).
+
+For live desktop acceptance, create a disposable vault at `test-vault/`, install the current build there, enable it, and open an editable `Acceptance.md` note. With Obsidian CLI enabled and its debugger attached (`obsidian vault=test-vault dev:debug on`), run `npm run test:obsidian`. This edits the test note, temporarily assigns a shortcut, and disables/re-enables the plugin; it checks the exact vault path before editing. It is intentionally separate from CI.
+
+See [the submission checklist](https://github.com/dariocast/obsidian-case-formatter/blob/main/docs/COMMUNITY-SUBMISSION.md) for release requirements and the naming decision. New release tags must match the manifest version exactly, such as `1.0.1`, without a `v` prefix.
 
 ## License
 

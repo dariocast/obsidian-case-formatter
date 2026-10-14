@@ -1,9 +1,10 @@
 {
   "id": "case-formatter",
   "name": "Case Formatter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "minAppVersion": "1.5.0",
-  "description": "Change selected text to uppercase, lowercase, sentence case, or capitalize each word using commands and the editor context menu.",
+  "description": "Change selected text to uppercase, lowercase, sentence case, or capitalize each word from commands, hotkeys, and the editor context menu.",
   "author": "Dario Castellano",
+  "authorUrl": "https://github.com/dariocast",
   "isDesktopOnly": false
 }

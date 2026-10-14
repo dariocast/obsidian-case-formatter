@@ -13,6 +13,7 @@ if (pkg.version !== manifest.version || versions[manifest.version] !== manifest.
 if (manifest.id !== 'case-formatter') throw new Error('Unexpected plugin folder name.');
 
 const destination = path.join(root, 'dist', manifest.id);
+await rm(destination, { recursive: true, force: true });
 await mkdir(destination, { recursive: true });
 for (const name of ['main.js', 'manifest.json', 'README.md', 'LICENSE', 'TEST-NOTE.md']) {
   await copyFile(path.join(root, name), path.join(destination, name));
