@@ -7,7 +7,6 @@
 - Clean the packaging destination so stale files cannot enter release archives.
 - Add packaging regression tests and a repeatable desktop acceptance script.
 - Verify commands, selections, native history, menu callbacks, lifecycle cleanup, and an assigned hotkey in Obsidian 1.14.4.
-- Keep the Case Formatter name and document the naming and submission checks.
 
 ## 1.0.0 — 2026-10-14
 

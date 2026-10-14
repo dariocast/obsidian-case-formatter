@@ -13,7 +13,7 @@ These operations follow the general definitions used by [Microsoft Word](https:/
 
 ## Manual installation
 
-Requires **Obsidian 1.5.0 or later**. The plugin uses APIs available on desktop and mobile; start with a manual test on desktop. It is not yet listed in the community plugin directory.
+Requires **Obsidian 1.5.0 or later**. The plugin uses APIs available on desktop and mobile; desktop testing and mobile limitations are described below.
 
 1. Download the ZIP from the [Releases page](https://github.com/dariocast/obsidian-case-formatter/releases/latest) and extract it. It contains a `case-formatter` folder. If you built the project locally, the ZIP is at `dist/case-formatter-1.0.1.zip`.
 2. Open your vault folder. Copy `case-formatter` into `.obsidian/plugins/`, creating `plugins` if needed. You can also copy the already extracted `dist/case-formatter` folder from a local build.
@@ -86,7 +86,7 @@ CI runs checks and packaging on Node.js 22 and 24, making the package available 
 
 For live desktop acceptance, create a disposable vault at `test-vault/`, install the current build there, enable it, and open an editable `Acceptance.md` note. With Obsidian CLI enabled and its debugger attached (`obsidian vault=test-vault dev:debug on`), run `npm run test:obsidian`. This edits the test note, temporarily assigns a shortcut, and disables/re-enables the plugin; it checks the exact vault path before editing. It is intentionally separate from CI.
 
-See [the submission checklist](https://github.com/dariocast/obsidian-case-formatter/blob/main/docs/COMMUNITY-SUBMISSION.md) for release requirements and the naming decision. New release tags must match the manifest version exactly, such as `1.0.1`, without a `v` prefix.
+New release tags must match the manifest version exactly, such as `1.0.1`, without a `v` prefix.
 
 ## License
 
