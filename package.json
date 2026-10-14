@@ -1,0 +1,26 @@
+{
+  "name": "obsidian-case-formatter",
+  "version": "1.0.0",
+  "private": true,
+  "engines": { "node": ">=22.12.0" },
+  "description": "Change the capitalization of selected text in Obsidian.",
+  "license": "MIT",
+  "scripts": {
+    "dev": "node esbuild.config.mjs --watch",
+    "build": "npm run typecheck && node esbuild.config.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check": "npm run test && npm run build",
+    "package": "npm run check && node scripts/package.mjs"
+  },
+  "devDependencies": {
+    "@codemirror/commands": "^6.0.0",
+    "@codemirror/state": "^6.0.0",
+    "@types/node": "^22.0.0",
+    "esbuild": "^0.28.2",
+    "obsidian": "latest",
+    "typescript": "^5.0.0",
+    "vitest": "^5.0.4"
+  }
+}
